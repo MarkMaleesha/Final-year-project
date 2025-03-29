@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotaract FMS - Project Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f4f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a237e, #3949ab);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1620641788421-4c6d7985f77b?auto=format&fit=crop&q=80') no-repeat center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .header h1, .header p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-top: 0.5rem;
+        }
+
+        .nav {
+            background-color: #283593;
+            padding: 1.2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #90caf9;
+        }
+
+        .hero {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80') no-repeat center/cover;
+            background-attachment: fixed;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: #1a237e;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            padding: 4rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #1a237e;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .download-section {
+            text-align: center;
+            padding: 5rem 0;
+            background: #eceff1;
+            background: url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80') no-repeat center/cover;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .download-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(236, 239, 241, 0.9);
+            z-index: 0;
+        }
+
+        .download-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-download {
+            background: #1a237e;
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+            margin-top: 2rem;
+        }
+
+        .btn-download:hover {
+            background: #3949ab;
+            transform: scale(1.05);
+        }
+
+        .requirements {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem auto;
+            max-width: 600px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .tech-stack {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 3rem 0;
+        }
+
+        .tech-item {
+            text-align: center;
+            padding: 1.5rem;
+            min-width: 120px;
+        }
+
+        .tech-item img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 0.75rem;
+        }
+
+        footer {
+            background: #1a237e;
+            color: white;
+            padding: 2.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        footer a {
+            color: #90caf9;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Rotaract FMS</h1>
+        <p>Financial Management System for Nonprofit Organizations</p>
+    </header>
+
+    <nav class="nav">
+        <a href="#features">Features</a>
+        <a href="#download">Download</a>
+        <a href="#docs">Documentation</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Transform Your Club's Financial Management</h2>
+            <p>Streamline operations with automated financial tracking, real-time analytics, and secure project management—all in one powerful platform.</p>
+        </div>
+    </section>
+
+    <section class="container" id="features">
+        <h2>Key Features</h2>
+        <div class="features">
+            <div class="feature-card">
+                <img src="https://img.icons8.com/color/96/000000/money.png" alt="Financial Icon">
+                <h3>Financial Tracking</h3>
+                <p>Effortlessly record income and expenses with real-time budget insights.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://img.icons8.com/color/96/000000/line-chart.png" alt="Analytics Icon">
+                <h3>Project Analytics</h3>
+                <p>Gain actionable insights with interactive dashboards and impact reports.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://img.icons8.com/color/96/000000/lock.png" alt="Security Icon">
+                <h3>Role-Based Access</h3>
+                <p>Ensure security with customizable permissions and detailed audit trails.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="download-section" id="download">
+        <div class="container">
+            <h2>Get Started Today</h2>
+            <div class="requirements">
+                <h3>System Requirements</h3>
+                <p>Windows 10/11 | .NET Framework 4.8 | 4GB RAM | 500MB Storage</p>
+            </div>
+            <a href="#" class="btn-download">Download Installer (v1.0.0)</a>
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <img src="https://img.icons8.com/color/96/000000/c-sharp-logo.png" alt="C#">
+                    <p>C# .NET</p>
+                </div>
+                <div class="tech-item">
+                    <img src="https://img.icons8.com/color/96/000000/firebase.png" alt="Firebase">
+                    <p>Firebase</p>
+                </div>
+                <div class="tech-item">
+                    <img src="https://img.icons8.com/color/96/000000/windows-10.png" alt="WPF">
+                    <p>WPF</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="docs">
+        <h2>Documentation</h2>
+        <div class="features">
+            <div class="feature-card">
+                <h3>User Guide</h3>
+                <p>Comprehensive instructions for getting started.</p>
+                <a href="#">Download PDF</a>
+            </div>
+            <div class="feature-card">
+                <h3>Technical Specs</h3>
+                <p>Detailed system architecture and API docs.</p>
+                <a href="#">View Docs</a>
+            </div>
+            <div class="feature-card">
+                <h3>Implementation Guide</h3>
+                <p>Step-by-step deployment instructions.</p>
+                <a href="#">Download</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>© 2025 Rotaract FMS. All rights reserved.</p>
+        <p>Contact: <a href="mailto:support@rotaractfms.org">support@rotaractfms.org</a> | Technical Support: <a href="tel:+94771234567">+94 77 123 4567</a></p>
+    </footer>
+</body>
+</html>
