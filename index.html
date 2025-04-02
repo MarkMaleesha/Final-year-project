@@ -14,13 +14,14 @@
         }
 
         body {
-            background-color: #f4f7fa;
-            color: #333;
+            background-color: #f5f6f5; /* Light gray-green for a soft base */
+            color: #2d3748; /* Dark slate for text readability */
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
         .header {
-            background: linear-gradient(135deg, #1a237e, #3949ab);
+            background: linear-gradient(135deg, #006d77, #83c5be); /* Teal gradient */
             color: white;
             padding: 3rem 2rem;
             text-align: center;
@@ -35,14 +36,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1620641788421-4c6d7985f77b?auto=format&fit=crop&q=80') no-repeat center/cover;
-            opacity: 0.1;
-            z-index: 0;
+            background: url('https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920') no-repeat center/cover;
+            opacity: 0.15; /* Slightly increased for subtle texture */
+            z-index: 1;
         }
 
         .header h1, .header p {
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .header h1 {
@@ -57,7 +58,7 @@
         }
 
         .nav {
-            background-color: #283593;
+            background-color: #006d77; /* Solid teal for nav */
             padding: 1.2rem;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
@@ -66,35 +67,38 @@
         }
 
         .nav a {
-            color: white;
+            color: #ffffff;
             text-decoration: none;
             margin: 0 2rem;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, background 0.3s ease;
         }
 
         .nav a:hover {
-            color: #90caf9;
+            color: #ff6f61; /* Coral for hover */
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
         }
 
         .hero {
             padding: 5rem 2rem;
             text-align: center;
-            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80') no-repeat center/cover;
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1920') no-repeat center/cover;
             background-attachment: fixed;
         }
 
         .hero h2 {
             font-size: 2.8rem;
             font-weight: 600;
-            color: #1a237e;
+            color: #006d77; /* Teal for headings */
             margin-bottom: 1rem;
         }
 
         .hero p {
             font-size: 1.3rem;
-            color: #555;
+            color: #4a5568; /* Softer slate for paragraph */
             max-width: 700px;
             margin: 0 auto;
         }
@@ -113,12 +117,14 @@
         }
 
         .feature-card {
-            background: white;
+            background: #edf6f9; /* Very light teal for cards */
             padding: 2.5rem;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
+            overflow: hidden;
+            min-height: 400px;
         }
 
         .feature-card:hover {
@@ -127,27 +133,38 @@
         }
 
         .feature-card img {
-            width: 60px;
-            height: 60px;
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
             margin-bottom: 1rem;
+            display: block;
         }
 
         .feature-card h3 {
             font-size: 1.5rem;
-            color: #1a237e;
+            color: #006d77; /* Teal for card headings */
             margin-bottom: 0.75rem;
         }
 
         .feature-card p {
-            color: #666;
+            color: #4a5568; /* Slate for card text */
             font-size: 1rem;
+        }
+
+        .feature-card a {
+            color: #ff6f61; /* Coral for links */
+            text-decoration: none;
+        }
+
+        .feature-card a:hover {
+            text-decoration: underline;
         }
 
         .download-section {
             text-align: center;
             padding: 5rem 0;
-            background: #eceff1;
-            background: url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&q=80') no-repeat center/cover;
+            background: url('https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=1920') no-repeat center/cover;
             background-attachment: fixed;
             position: relative;
         }
@@ -159,17 +176,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(236, 239, 241, 0.9);
-            z-index: 0;
+            background: rgba(245, 246, 245, 0.9); /* Matches body background */
+            z-index: 1;
         }
 
         .download-section .container {
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .btn-download {
-            background: #1a237e;
+            background: #ff6f61; /* Coral for button */
             color: white;
             padding: 1.2rem 3rem;
             border-radius: 30px;
@@ -182,12 +199,12 @@
         }
 
         .btn-download:hover {
-            background: #3949ab;
+            background: #f56565; /* Slightly darker coral for hover */
             transform: scale(1.05);
         }
 
         .requirements {
-            background: white;
+            background: #edf6f9; /* Light teal for consistency */
             padding: 2rem;
             border-radius: 12px;
             margin: 2rem auto;
@@ -213,10 +230,11 @@
             width: 50px;
             height: 50px;
             margin-bottom: 0.75rem;
+            display: block;
         }
 
         footer {
-            background: #1a237e;
+            background: #006d77; /* Teal footer */
             color: white;
             padding: 2.5rem;
             text-align: center;
@@ -228,19 +246,52 @@
         }
 
         footer a {
-            color: #90caf9;
+            color: #ffccc7; /* Light coral for footer links */
             text-decoration: none;
         }
 
         footer a:hover {
             text-decoration: underline;
         }
+
+        h2 {
+            color: #006d77; /* Teal for section headings */
+        }
+
+        @media (max-width: 768px) {
+            .nav a {
+                margin: 0 1rem;
+                font-size: 1rem;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .features {
+                grid-template-columns: 1fr;
+            }
+            .tech-stack {
+                gap: 1.5rem;
+            }
+            .feature-card {
+                padding: 1.5rem;
+                min-height: 350px;
+            }
+            .feature-card h3 {
+                font-size: 1.3rem;
+            }
+            .feature-card p {
+                font-size: 0.9rem;
+            }
+            .feature-card img {
+                height: 150px;
+            }
+        }
     </style>
 </head>
 <body>
     <header class="header">
         <h1>Rotaract FMS</h1>
-        <p>Financial Management System for Nonprofit Organizations</p>
+        <p>Financial And Projct Management System </p>
     </header>
 
     <nav class="nav">
@@ -250,7 +301,7 @@
         <a href="#contact">Contact</a>
     </nav>
 
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="container">
             <h2>Transform Your Club's Financial Management</h2>
             <p>Streamline operations with automated financial tracking, real-time analytics, and secure project management—all in one powerful platform.</p>
@@ -261,19 +312,34 @@
         <h2>Key Features</h2>
         <div class="features">
             <div class="feature-card">
-                <img src="https://img.icons8.com/color/96/000000/money.png" alt="Financial Icon">
+                <img src="https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Financial Tracking Dashboard" onerror="this.src='https://via.placeholder.com/600x180?text=Financial+Tracking'">
                 <h3>Financial Tracking</h3>
                 <p>Effortlessly record income and expenses with real-time budget insights.</p>
             </div>
             <div class="feature-card">
-                <img src="https://img.icons8.com/color/96/000000/line-chart.png" alt="Analytics Icon">
+                <img src="https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Project Analytics Dashboard" onerror="this.src='https://via.placeholder.com/600x180?text=Project+Analytics'">
                 <h3>Project Analytics</h3>
                 <p>Gain actionable insights with interactive dashboards and impact reports.</p>
             </div>
             <div class="feature-card">
-                <img src="https://img.icons8.com/color/96/000000/lock.png" alt="Security Icon">
+                <img src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Secure Access Interface" onerror="this.src='https://via.placeholder.com/600x180?text=Role-Based+Access'">
                 <h3>Role-Based Access</h3>
                 <p>Ensure security with customizable permissions and detailed audit trails.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://images.pexels.com/photos/669996/pexels-photo-669996.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Expense Automation Workflow" onerror="this.src='https://via.placeholder.com/600x180?text=Expense+Automation'">
+                <h3>Expense Automation</h3>
+                <p>Automate expense categorization and approval workflows for efficiency.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Team Collaboration Interface" onerror="this.src='https://via.placeholder.com/600x180?text=Team+Collaboration'">
+                <h3>Team Collaboration</h3>
+                <p>Enable seamless collaboration with shared project timelines and updates.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Custom Reports Dashboard" onerror="this.src='https://via.placeholder.com/600x180?text=Custom+Reports'">
+                <h3>Custom Reports</h3>
+                <p>Generate tailored financial and project reports with ease.</p>
             </div>
         </div>
     </section>
@@ -288,15 +354,15 @@
             <a href="#" class="btn-download">Download Installer (v1.0.0)</a>
             <div class="tech-stack">
                 <div class="tech-item">
-                    <img src="https://img.icons8.com/color/96/000000/c-sharp-logo.png" alt="C#">
+                    <img src="https://img.icons8.com/color/96/000000/c-sharp-logo.png" alt="C# .NET Logo">
                     <p>C# .NET</p>
                 </div>
                 <div class="tech-item">
-                    <img src="https://img.icons8.com/color/96/000000/firebase.png" alt="Firebase">
+                    <img src="https://img.icons8.com/color/96/000000/firebase.png" alt="Firebase Logo">
                     <p>Firebase</p>
                 </div>
                 <div class="tech-item">
-                    <img src="https://img.icons8.com/color/96/000000/windows-10.png" alt="WPF">
+                    <img src="https://img.icons8.com/color/96/000000/windows-10.png" alt="WPF Logo">
                     <p>WPF</p>
                 </div>
             </div>
@@ -307,16 +373,19 @@
         <h2>Documentation</h2>
         <div class="features">
             <div class="feature-card">
+                <img src="https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=600" alt="User Guide Document" onerror="this.src='https://via.placeholder.com/600x180?text=User+Guide'">
                 <h3>User Guide</h3>
                 <p>Comprehensive instructions for getting started.</p>
                 <a href="#">Download PDF</a>
             </div>
             <div class="feature-card">
+                <img src="https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Technical Specs Document" onerror="this.src='https://via.placeholder.com/600x180?text=Technical+Specs'">
                 <h3>Technical Specs</h3>
                 <p>Detailed system architecture and API docs.</p>
                 <a href="#">View Docs</a>
             </div>
             <div class="feature-card">
+                <img src="https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Implementation Guide Document" onerror="this.src='https://via.placeholder.com/600x180?text=Implementation+Guide'">
                 <h3>Implementation Guide</h3>
                 <p>Step-by-step deployment instructions.</p>
                 <a href="#">Download</a>
@@ -326,7 +395,17 @@
 
     <footer id="contact">
         <p>© 2025 Rotaract FMS. All rights reserved.</p>
-        <p>Contact: <a href="mailto:support@rotaractfms.org">support@rotaractfms.org</a> | Technical Support: <a href="tel:+94771234567">+94 77 123 4567</a></p>
+        <p>Contact: <a href="mailto:support@rotaractfms.org">support@rotaractfms.org</a> | Technical Support: <a href="tel:+94718689563">+94 71 8689 563</a></p>
     </footer>
+
+    <script>
+        // Check for image load errors and log them
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', () => {
+                console.log(`Image failed to load: ${img.src}`);
+                img.src = 'https://via.placeholder.com/600x180?text=Image+Not+Found';
+            });
+        });
+    </script>
 </body>
 </html>
