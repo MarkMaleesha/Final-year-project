@@ -298,8 +298,8 @@
         <a href="#features">Features</a>
         <a href="#download">Download</a>
         <a href="#docs">Documentation</a>
-        <a href="#budget-3d">Budget 3D</a> <!-- New nav link for Budget 3D -->
-        <a href="#project-3d">Project 3D</a> <!-- New nav link for Project 3D -->
+        <a href="#budget-3d">Budget 3D</a>
+        <a href="#project-3d">Project 3D</a>
         <a href="#contact">Contact</a>
     </nav>
 
@@ -395,11 +395,28 @@
         </div>
     </section>
 
-    <!-- 3D Budget Visualization Section -->
+    <!-- Updated 3D Budget Visualization Section -->
     <section class="container" id="budget-3d">
-        <h2>Interactive 3D Budget Visualization</h2>
-        <p>Explore your financial data in 3D! Rotate and interact with this sample budget breakdown.</p>
-        <div id="budget-3d-container" style="width: 100%; height: 500px; margin: 2rem auto; border-radius: 12px; overflow: hidden; background: #edf6f9; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);"></div>
+        <h2>Interactive 3D Budget Insights</h2>
+        <p>Explore your club's financial management with these 3D charts: Budget Breakdown, Income Sources, Budget Allocation, and Financial Trends.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+            <div>
+                <h3 style="text-align: center; color: #006d77;">Budget Breakdown</h3>
+                <div id="budget-breakdown-3d-container" style="width: 300px; height: 300px; border-radius: 12px; overflow: hidden; background: #edf6f9; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);"></div>
+            </div>
+            <div>
+                <h3 style="text-align: center; color: #006d77;">Income Sources</h3>
+                <div id="income-3d-container" style="width: 300px; height: 300px; border-radius: 12px; overflow: hidden; background: #edf6f9; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);"></div>
+            </div>
+            <div>
+                <h3 style="text-align: center; color: #006d77;">Budget Allocation</h3>
+                <div id="allocation-3d-container" style="width: 300px; height: 300px; border-radius: 12px; overflow: hidden; background: #edf6f9; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);"></div>
+            </div>
+            <div>
+                <h3 style="text-align: center; color: #006d77;">Financial Trends</h3>
+                <div id="trends-3d-container" style="width: 300px; height: 300px; border-radius: 12px; overflow: hidden; background: #edf6f9; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);"></div>
+            </div>
+        </div>
     </section>
 
     <!-- 3D Project Category Visualization Section -->
@@ -428,36 +445,48 @@
     <!-- Three.js Script for 3D Visualizations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script>
-        // Budget 3D Visualization
-        (function() {
+        // Function to create a 3D scene (reusable for pie and bar charts)
+        function create3DScene(containerId, data, type) {
             const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 500, 0.1, 1000);
+            const camera = new THREE.PerspectiveCamera(75, 300 / 300, 0.1, 1000);
             const renderer = new THREE.WebGLRenderer({ antialias: true });
-            const container = document.getElementById('budget-3d-container');
+            const container = document.getElementById(containerId);
 
-            renderer.setSize(container.clientWidth, 500);
+            renderer.setSize(300, 300);
             container.appendChild(renderer.domElement);
             renderer.setClearColor(0xedf6f9, 1);
 
-            const budgetData = [
-                { name: "Projects", value: 40, color: 0x006d77 }, // Teal
-                { name: "Events", value: 30, color: 0xff6f61 },  // Coral
-                { name: "Operations", value: 20, color: 0x83c5be }, // Light teal
-                { name: "Reserves", value: 10, color: 0x4a5568 }  // Slate
-            ];
-
-            const radius = 5;
-            let startAngle = 0;
-
-            budgetData.forEach(segment => {
-                const angle = (segment.value / 100) * Math.PI * 2;
-                const geometry = new THREE.CylinderGeometry(radius, radius, 1, 32, 1, false, startAngle, angle);
-                const material = new THREE.MeshPhongMaterial({ color: segment.color });
-                const slice = new THREE.Mesh(geometry, material);
-                slice.position.y = 0.5;
-                scene.add(slice);
-                startAngle += angle;
-            });
+            if (type === 'pie') {
+                const radius = 5;
+                let startAngle = 0;
+                data.forEach(segment => {
+                    const angle = (segment.value / 100) * Math.PI * 2;
+                    const geometry = new THREE.CylinderGeometry(radius, radius, 1, 32, 1, false, startAngle, angle);
+                    const material = new THREE.MeshPhongMaterial({ color: segment.color });
+                    const slice = new THREE.Mesh(geometry, material);
+                    slice.position.y = 0.5;
+                    scene.add(slice);
+                    startAngle += angle;
+                });
+                camera.position.z = 10;
+                camera.position.y = 5;
+            } else if (type === 'bar') {
+                const barWidth = 1.5;
+                const spacing = 2;
+                let xOffset = -(data.length - 1) * spacing / 2;
+                data.forEach(segment => {
+                    const height = segment.value / 5;
+                    const geometry = new THREE.BoxGeometry(barWidth, height, barWidth);
+                    const material = new THREE.MeshPhongMaterial({ color: segment.color });
+                    const bar = new THREE.Mesh(geometry, material);
+                    bar.position.x = xOffset;
+                    bar.position.y = height / 2;
+                    scene.add(bar);
+                    xOffset += spacing;
+                });
+                camera.position.z = 15;
+                camera.position.y = 10;
+            }
 
             const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
             scene.add(ambientLight);
@@ -465,8 +494,6 @@
             pointLight.position.set(10, 10, 10);
             scene.add(pointLight);
 
-            camera.position.z = 10;
-            camera.position.y = 5;
             camera.lookAt(0, 0, 0);
 
             function animate() {
@@ -475,13 +502,6 @@
                 renderer.render(scene, camera);
             }
             animate();
-
-            window.addEventListener('resize', () => {
-                const width = container.clientWidth;
-                camera.aspect = width / 500;
-                camera.updateProjectionMatrix();
-                renderer.setSize(width, 500);
-            });
 
             let isDragging = false;
             let previousMousePosition = { x: 0, y: 0 };
@@ -497,9 +517,52 @@
             });
             container.addEventListener('mouseup', () => { isDragging = false; });
             container.addEventListener('mouseleave', () => { isDragging = false; });
+        }
+
+        // Budget Breakdown 3D Visualization (Original Pie Chart)
+        (function() {
+            const budgetData = [
+                { name: "Projects", value: 40, color: 0x006d77 }, // Teal
+                { name: "Events", value: 30, color: 0xff6f61 },  // Coral
+                { name: "Operations", value: 20, color: 0x83c5be }, // Light teal
+                { name: "Reserves", value: 10, color: 0x4a5568 }  // Slate
+            ];
+            create3DScene('budget-breakdown-3d-container', budgetData, 'pie');
         })();
 
-        // Project Category 3D Visualization
+        // Income Sources 3D Visualization (Pie Chart)
+        (function() {
+            const incomeData = [
+                { name: "Donations", value: 40, color: 0x48bb78 }, // Emerald Green
+                { name: "Fundraising", value: 35, color: 0x68d391 }, // Light Green
+                { name: "Membership Fees", value: 25, color: 0xa0aec0 } // Soft Gray
+            ];
+            create3DScene('income-3d-container', incomeData, 'pie');
+        })();
+
+        // Budget Allocation 3D Visualization (Pie Chart)
+        (function() {
+            const allocationData = [
+                { name: "Programmes", value: 50, color: 0x4299e1 }, // Sky Blue
+                { name: "Reserves", value: 20, color: 0x63b3ed }, // Light Blue
+                { name: "Contingency", value: 15, color: 0x90cdf4 }, // Pale Blue
+                { name: "Training", value: 15, color: 0x3182ce } // Deep Blue
+            ];
+            create3DScene('allocation-3d-container', allocationData, 'pie');
+        })();
+
+        // Financial Trends 3D Visualization (Bar Chart)
+        (function() {
+            const trendsData = [
+                { name: "Q1 Income", value: 60, color: 0x48bb78 }, // Emerald Green
+                { name: "Q1 Expense", value: 45, color: 0xed8936 }, // Warm Orange
+                { name: "Q2 Income", value: 70, color: 0x68d391 }, // Light Green
+                { name: "Q2 Expense", value: 50, color: 0xf6ad55 } // Light Orange
+            ];
+            create3DScene('trends-3d-container', trendsData, 'bar');
+        })();
+
+        // Project Category 3D Visualization (Unchanged)
         (function() {
             const scene = new THREE.Scene();
             const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 500, 0.1, 1000);
