@@ -298,6 +298,8 @@
         <a href="#features">Features</a>
         <a href="#download">Download</a>
         <a href="#docs">Documentation</a>
+        <a href="#budget-3d">Budget 3D</a> <!-- New nav link for Budget 3D -->
+        <a href="#project-3d">Project 3D</a> <!-- New nav link for Project 3D -->
         <a href="#contact">Contact</a>
     </nav>
 
@@ -393,11 +395,26 @@
         </div>
     </section>
 
+    <!-- 3D Budget Visualization Section -->
+    <section class="container" id="budget-3d">
+        <h2>Interactive 3D Budget Visualization</h2>
+        <p>Explore your financial data in 3D! Rotate and interact with this sample budget breakdown.</p>
+        <div id="budget-3d-container" style="width: 100%; height: 500px; margin: 2rem auto; border-radius: 12px; overflow: hidden; background: #edf6f9; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);"></div>
+    </section>
+
+    <!-- 3D Project Category Visualization Section -->
+    <section class="container" id="project-3d">
+        <h2>Interactive 3D Project Category Visualization</h2>
+        <p>Visualize project categories in 3D! Rotate and interact with this sample project distribution.</p>
+        <div id="project-3d-container" style="width: 100%; height: 500px; margin: 2rem auto; border-radius: 12px; overflow: hidden; background: #edf6f9; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);"></div>
+    </section>
+
     <footer id="contact">
         <p>© 2025 Rotaract FMS. All rights reserved.</p>
         <p>Contact: <a href="mailto:support@rotaractfms.org">support@rotaractfms.org</a> | Technical Support: <a href="tel:+94718689563">+94 71 8689 563</a></p>
     </footer>
 
+    <!-- Original Image Error Script -->
     <script>
         // Check for image load errors and log them
         document.querySelectorAll('img').forEach(img => {
@@ -406,6 +423,154 @@
                 img.src = 'https://via.placeholder.com/600x180?text=Image+Not+Found';
             });
         });
+    </script>
+
+    <!-- Three.js Script for 3D Visualizations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script>
+        // Budget 3D Visualization
+        (function() {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 500, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+            const container = document.getElementById('budget-3d-container');
+
+            renderer.setSize(container.clientWidth, 500);
+            container.appendChild(renderer.domElement);
+            renderer.setClearColor(0xedf6f9, 1);
+
+            const budgetData = [
+                { name: "Projects", value: 40, color: 0x006d77 }, // Teal
+                { name: "Events", value: 30, color: 0xff6f61 },  // Coral
+                { name: "Operations", value: 20, color: 0x83c5be }, // Light teal
+                { name: "Reserves", value: 10, color: 0x4a5568 }  // Slate
+            ];
+
+            const radius = 5;
+            let startAngle = 0;
+
+            budgetData.forEach(segment => {
+                const angle = (segment.value / 100) * Math.PI * 2;
+                const geometry = new THREE.CylinderGeometry(radius, radius, 1, 32, 1, false, startAngle, angle);
+                const material = new THREE.MeshPhongMaterial({ color: segment.color });
+                const slice = new THREE.Mesh(geometry, material);
+                slice.position.y = 0.5;
+                scene.add(slice);
+                startAngle += angle;
+            });
+
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+            const pointLight = new THREE.PointLight(0xffffff, 1);
+            pointLight.position.set(10, 10, 10);
+            scene.add(pointLight);
+
+            camera.position.z = 10;
+            camera.position.y = 5;
+            camera.lookAt(0, 0, 0);
+
+            function animate() {
+                requestAnimationFrame(animate);
+                scene.rotation.y += 0.01;
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            window.addEventListener('resize', () => {
+                const width = container.clientWidth;
+                camera.aspect = width / 500;
+                camera.updateProjectionMatrix();
+                renderer.setSize(width, 500);
+            });
+
+            let isDragging = false;
+            let previousMousePosition = { x: 0, y: 0 };
+
+            container.addEventListener('mousedown', (e) => { isDragging = true; });
+            container.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    const deltaMove = { x: e.offsetX - previousMousePosition.x, y: e.offsetY - previousMousePosition.y };
+                    scene.rotation.y += deltaMove.x * 0.005;
+                    scene.rotation.x += deltaMove.y * 0.005;
+                }
+                previousMousePosition = { x: e.offsetX, y: e.offsetY };
+            });
+            container.addEventListener('mouseup', () => { isDragging = false; });
+            container.addEventListener('mouseleave', () => { isDragging = false; });
+        })();
+
+        // Project Category 3D Visualization
+        (function() {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 500, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+            const container = document.getElementById('project-3d-container');
+
+            renderer.setSize(container.clientWidth, 500);
+            container.appendChild(renderer.domElement);
+            renderer.setClearColor(0xedf6f9, 1);
+
+            const projectData = [
+                { name: "Community", value: 35, color: 0x006d77 }, // Teal
+                { name: "Professional", value: 25, color: 0xff6f61 }, // Coral
+                { name: "International", value: 20, color: 0x83c5be }, // Light teal
+                { name: "Club Service", value: 20, color: 0x4a5568 } // Slate
+            ];
+
+            const barWidth = 1.5;
+            const spacing = 2;
+            let xOffset = -(projectData.length - 1) * spacing / 2;
+
+            projectData.forEach(segment => {
+                const height = segment.value / 5;
+                const geometry = new THREE.BoxGeometry(barWidth, height, barWidth);
+                const material = new THREE.MeshPhongMaterial({ color: segment.color });
+                const bar = new THREE.Mesh(geometry, material);
+                bar.position.x = xOffset;
+                bar.position.y = height / 2;
+                scene.add(bar);
+                xOffset += spacing;
+            });
+
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+            const pointLight = new THREE.PointLight(0xffffff, 1);
+            pointLight.position.set(10, 10, 10);
+            scene.add(pointLight);
+
+            camera.position.z = 15;
+            camera.position.y = 10;
+            camera.lookAt(0, 0, 0);
+
+            function animate() {
+                requestAnimationFrame(animate);
+                scene.rotation.y += 0.01;
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            window.addEventListener('resize', () => {
+                const width = container.clientWidth;
+                camera.aspect = width / 500;
+                camera.updateProjectionMatrix();
+                renderer.setSize(width, 500);
+            });
+
+            let isDragging = false;
+            let previousMousePosition = { x: 0, y: 0 };
+
+            container.addEventListener('mousedown', (e) => { isDragging = true; });
+            container.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    const deltaMove = { x: e.offsetX - previousMousePosition.x, y: e.offsetY - previousMousePosition.y };
+                    scene.rotation.y += deltaMove.x * 0.005;
+                    scene.rotation.x += deltaMove.y * 0.005;
+                }
+                previousMousePosition = { x: e.offsetX, y: e.offsetY };
+            });
+            container.addEventListener('mouseup', () => { isDragging = false; });
+            container.addEventListener('mouseleave', () => { isDragging = false; });
+        })();
     </script>
 </body>
 </html>
