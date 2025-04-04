@@ -14,14 +14,14 @@
         }
 
         body {
-            background-color: #f5f6f5; /* Light gray-green for a soft base */
-            color: #2d3748; /* Dark slate for text readability */
+            background-color: #f5f6f5;
+            color: #2d3748;
             line-height: 1.6;
             scroll-behavior: smooth;
         }
 
         .header {
-            background: linear-gradient(135deg, #006d77, #83c5be); /* Teal gradient */
+            background: linear-gradient(135deg, #006d77, #83c5be);
             color: white;
             padding: 3rem 2rem;
             text-align: center;
@@ -37,7 +37,7 @@
             width: 100%;
             height: 100%;
             background: url('https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920') no-repeat center/cover;
-            opacity: 0.15; /* Slightly increased for subtle texture */
+            opacity: 0.15;
             z-index: 1;
         }
 
@@ -58,7 +58,7 @@
         }
 
         .nav {
-            background-color: #006d77; /* Solid teal for nav */
+            background-color: #006d77;
             padding: 1.2rem;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: sticky;
@@ -76,7 +76,7 @@
         }
 
         .nav a:hover {
-            color: #ff6f61; /* Coral for hover */
+            color: #ff6f61;
             background: rgba(255, 255, 255, 0.15);
             padding: 0.5rem 1rem;
             border-radius: 5px;
@@ -92,13 +92,13 @@
         .hero h2 {
             font-size: 2.8rem;
             font-weight: 600;
-            color: #006d77; /* Teal for headings */
+            color: #006d77;
             margin-bottom: 1rem;
         }
 
         .hero p {
             font-size: 1.3rem;
-            color: #4a5568; /* Softer slate for paragraph */
+            color: #4a5568;
             max-width: 700px;
             margin: 0 auto;
         }
@@ -117,7 +117,7 @@
         }
 
         .feature-card {
-            background: #edf6f9; /* Very light teal for cards */
+            background: #edf6f9;
             padding: 2.5rem;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
@@ -143,17 +143,17 @@
 
         .feature-card h3 {
             font-size: 1.5rem;
-            color: #006d77; /* Teal for card headings */
+            color: #006d77;
             margin-bottom: 0.75rem;
         }
 
         .feature-card p {
-            color: #4a5568; /* Slate for card text */
+            color: #4a5568;
             font-size: 1rem;
         }
 
         .feature-card a {
-            color: #ff6f61; /* Coral for links */
+            color: #ff6f61;
             text-decoration: none;
         }
 
@@ -176,7 +176,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(245, 246, 245, 0.9); /* Matches body background */
+            background: rgba(245, 246, 245, 0.9);
             z-index: 1;
         }
 
@@ -186,7 +186,7 @@
         }
 
         .btn-download {
-            background: #ff6f61; /* Coral for button */
+            background: #ff6f61;
             color: white;
             padding: 1.2rem 3rem;
             border-radius: 30px;
@@ -199,12 +199,12 @@
         }
 
         .btn-download:hover {
-            background: #f56565; /* Slightly darker coral for hover */
+            background: #f56565;
             transform: scale(1.05);
         }
 
         .requirements {
-            background: #edf6f9; /* Light teal for consistency */
+            background: #edf6f9;
             padding: 2rem;
             border-radius: 12px;
             margin: 2rem auto;
@@ -234,7 +234,7 @@
         }
 
         footer {
-            background: #006d77; /* Teal footer */
+            background: #006d77;
             color: white;
             padding: 2.5rem;
             text-align: center;
@@ -246,7 +246,7 @@
         }
 
         footer a {
-            color: #ffccc7; /* Light coral for footer links */
+            color: #ffccc7;
             text-decoration: none;
         }
 
@@ -255,7 +255,7 @@
         }
 
         h2 {
-            color: #006d77; /* Teal for section headings */
+            color: #006d77;
         }
 
         @media (max-width: 768px) {
@@ -291,7 +291,7 @@
 <body>
     <header class="header">
         <h1>Rotaract FMS</h1>
-        <p>Financial And Projct Management System </p>
+        <p>Financial And Project Management System</p>
     </header>
 
     <nav class="nav">
@@ -395,7 +395,6 @@
         </div>
     </section>
 
-    <!-- Updated 3D Budget Visualization Section -->
     <section class="container" id="budget-3d">
         <h2>Interactive 3D Budget Insights</h2>
         <p>Explore your club's financial management with these 3D charts: Budget Breakdown, Income Sources, Budget Allocation, and Financial Trends.</p>
@@ -419,11 +418,27 @@
         </div>
     </section>
 
-    <!-- 3D Project Category Visualization Section -->
     <section class="container" id="project-3d">
         <h2>Interactive 3D Project Category Visualization</h2>
-        <p>Visualize project categories in 3D! Rotate and interact with this sample project distribution.</p>
-        <div id="project-3d-container" style="width: 100%; height: 500px; margin: 2rem auto; border-radius: 12px; overflow: hidden; background: #edf6f9; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);"></div>
+        <p>Visualize project categories in 3D! Rotate and interact with these sample project distributions for Club Service, Community Service, Professional Development, and International Service.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+            <div>
+                <h3 style="text-align: center; color: #006d77;">Club Service</h3>
+                <div id="club-service-3d-container" style="width: 300px; height: 300px; border-radius: 12px; overflow: hidden; background: #edf6f9; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);"></div>
+            </div>
+            <div>
+                <h3 style="text-align: center; color: #006d77;">Community Service</h3>
+                <div id="community-service-3d-container" style="width: 300px; height: 300px; border-radius: 12px; overflow: hidden; background: #edf6f9; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);"></div>
+            </div>
+            <div>
+                <h3 style="text-align: center; color: #006d77;">Professional Development</h3>
+                <div id="professional-dev-3d-container" style="width: 300px; height: 300px; border-radius: 12px; overflow: hidden; background: #edf6f9; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);"></div>
+            </div>
+            <div>
+                <h3 style="text-align: center; color: #006d77;">International Service</h3>
+                <div id="international-service-3d-container" style="width: 300px; height: 300px; border-radius: 12px; overflow: hidden; background: #edf6f9; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);"></div>
+            </div>
+        </div>
     </section>
 
     <footer id="contact">
@@ -431,209 +446,193 @@
         <p>Contact: <a href="mailto:support@rotaractfms.org">support@rotaractfms.org</a> | Technical Support: <a href="tel:+94718689563">+94 71 8689 563</a></p>
     </footer>
 
-    <!-- Original Image Error Script -->
-    <script>
-        // Check for image load errors and log them
-        document.querySelectorAll('img').forEach(img => {
-            img.addEventListener('error', () => {
-                console.log(`Image failed to load: ${img.src}`);
-                img.src = 'https://via.placeholder.com/600x180?text=Image+Not+Found';
-            });
-        });
-    </script>
-
-    <!-- Three.js Script for 3D Visualizations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script>
-        // Function to create a 3D scene (reusable for pie and bar charts)
-        function create3DScene(containerId, data, type) {
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, 300 / 300, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ antialias: true });
-            const container = document.getElementById(containerId);
-
-            renderer.setSize(300, 300);
-            container.appendChild(renderer.domElement);
-            renderer.setClearColor(0xedf6f9, 1);
-
-            if (type === 'pie') {
-                const radius = 5;
-                let startAngle = 0;
-                data.forEach(segment => {
-                    const angle = (segment.value / 100) * Math.PI * 2;
-                    const geometry = new THREE.CylinderGeometry(radius, radius, 1, 32, 1, false, startAngle, angle);
-                    const material = new THREE.MeshPhongMaterial({ color: segment.color });
-                    const slice = new THREE.Mesh(geometry, material);
-                    slice.position.y = 0.5;
-                    scene.add(slice);
-                    startAngle += angle;
+        // Wait for DOM to load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Image error handling
+            document.querySelectorAll('img').forEach(img => {
+                img.addEventListener('error', () => {
+                    console.log(`Image failed to load: ${img.src}`);
+                    img.src = 'https://via.placeholder.com/600x180?text=Image+Not+Found';
                 });
-                camera.position.z = 10;
-                camera.position.y = 5;
-            } else if (type === 'bar') {
-                const barWidth = 1.5;
-                const spacing = 2;
-                let xOffset = -(data.length - 1) * spacing / 2;
-                data.forEach(segment => {
-                    const height = segment.value / 5;
-                    const geometry = new THREE.BoxGeometry(barWidth, height, barWidth);
-                    const material = new THREE.MeshPhongMaterial({ color: segment.color });
-                    const bar = new THREE.Mesh(geometry, material);
-                    bar.position.x = xOffset;
-                    bar.position.y = height / 2;
-                    scene.add(bar);
-                    xOffset += spacing;
+            });
+
+            // Check if THREE is loaded
+            if (typeof THREE === 'undefined') {
+                console.error('Three.js failed to load. Check your internet connection or the CDN URL.');
+                return;
+            }
+
+            // Function to create a 3D scene
+            function create3DScene(containerId, data, type) {
+                const container = document.getElementById(containerId);
+                if (!container) {
+                    console.error(`Container with ID ${containerId} not found`);
+                    return;
+                }
+
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(75, 300 / 300, 0.1, 1000);
+                const renderer = new THREE.WebGLRenderer({ antialias: true });
+                renderer.setSize(300, 300);
+                renderer.setClearColor(0xedf6f9, 1);
+                container.innerHTML = ''; // Clear any previous content
+                container.appendChild(renderer.domElement);
+
+                if (type === 'pie') {
+                    const radius = 5;
+                    let startAngle = 0;
+                    data.forEach(segment => {
+                        const angle = (segment.value / 100) * Math.PI * 2;
+                        const geometry = new THREE.CylinderGeometry(radius, radius, 1, 32, 1, false, startAngle, angle);
+                        const material = new THREE.MeshPhongMaterial({ color: segment.color });
+                        const slice = new THREE.Mesh(geometry, material);
+                        slice.position.y = 0.5;
+                        scene.add(slice);
+                        startAngle += angle;
+                    });
+                    camera.position.set(0, 5, 10);
+                } else if (type === 'bar') {
+                    const barWidth = 1.5;
+                    const spacing = 2;
+                    let xOffset = -(data.length - 1) * spacing / 2;
+                    data.forEach(segment => {
+                        const height = segment.value / 5;
+                        const geometry = new THREE.BoxGeometry(barWidth, height, barWidth);
+                        const material = new THREE.MeshPhongMaterial({ color: segment.color });
+                        const bar = new THREE.Mesh(geometry, material);
+                        bar.position.x = xOffset;
+                        bar.position.y = height / 2;
+                        scene.add(bar);
+                        xOffset += spacing;
+                    });
+                    camera.position.set(0, 10, 15);
+                }
+
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+                scene.add(ambientLight);
+                const pointLight = new THREE.PointLight(0xffffff, 1);
+                pointLight.position.set(10, 10, 10);
+                scene.add(pointLight);
+
+                camera.lookAt(0, 0, 0);
+
+                function animate() {
+                    requestAnimationFrame(animate);
+                    scene.rotation.y += 0.01;
+                    renderer.render(scene, camera);
+                }
+                animate();
+
+                let isDragging = false;
+                let previousMousePosition = { x: 0, y: 0 };
+
+                container.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    previousMousePosition = { x: e.offsetX, y: e.offsetY };
                 });
-                camera.position.z = 15;
-                camera.position.y = 10;
+                container.addEventListener('mousemove', (e) => {
+                    if (isDragging) {
+                        const deltaMove = { x: e.offsetX - previousMousePosition.x, y: e.offsetY - previousMousePosition.y };
+                        scene.rotation.y += deltaMove.x * 0.005;
+                        scene.rotation.x += deltaMove.y * 0.005;
+                        previousMousePosition = { x: e.offsetX, y: e.offsetY };
+                    }
+                });
+                container.addEventListener('mouseup', () => { isDragging = false; });
+                container.addEventListener('mouseleave', () => { isDragging = false; });
             }
 
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-            scene.add(ambientLight);
-            const pointLight = new THREE.PointLight(0xffffff, 1);
-            pointLight.position.set(10, 10, 10);
-            scene.add(pointLight);
-
-            camera.lookAt(0, 0, 0);
-
-            function animate() {
-                requestAnimationFrame(animate);
-                scene.rotation.y += 0.01;
-                renderer.render(scene, camera);
-            }
-            animate();
-
-            let isDragging = false;
-            let previousMousePosition = { x: 0, y: 0 };
-
-            container.addEventListener('mousedown', (e) => { isDragging = true; });
-            container.addEventListener('mousemove', (e) => {
-                if (isDragging) {
-                    const deltaMove = { x: e.offsetX - previousMousePosition.x, y: e.offsetY - previousMousePosition.y };
-                    scene.rotation.y += deltaMove.x * 0.005;
-                    scene.rotation.x += deltaMove.y * 0.005;
+            // Data and chart initialization
+            const charts = [
+                {
+                    id: 'budget-breakdown-3d-container',
+                    data: [
+                        { name: "Projects", value: 40, color: 0x006d77 },
+                        { name: "Events", value: 30, color: 0xff6f61 },
+                        { name: "Operations", value: 20, color: 0x83c5be },
+                        { name: "Reserves", value: 10, color: 0x4a5568 }
+                    ],
+                    type: 'pie'
+                },
+                {
+                    id: 'income-3d-container',
+                    data: [
+                        { name: "Donations", value: 40, color: 0x48bb78 },
+                        { name: "Fundraising", value: 35, color: 0x68d391 },
+                        { name: "Membership Fees", value: 25, color: 0xa0aec0 }
+                    ],
+                    type: 'pie'
+                },
+                {
+                    id: 'allocation-3d-container',
+                    data: [
+                        { name: "Programmes", value: 50, color: 0x4299e1 },
+                        { name: "Reserves", value: 20, color: 0x63b3ed },
+                        { name: "Contingency", value: 15, color: 0x90cdf4 },
+                        { name: "Training", value: 15, color: 0x3182ce }
+                    ],
+                    type: 'pie'
+                },
+                {
+                    id: 'trends-3d-container',
+                    data: [
+                        { name: "Q1 Income", value: 60, color: 0x48bb78 },
+                        { name: "Q1 Expense", value: 45, color: 0xed8936 },
+                        { name: "Q2 Income", value: 70, color: 0x68d391 },
+                        { name: "Q2 Expense", value: 50, color: 0xf6ad55 }
+                    ],
+                    type: 'bar'
+                },
+                {
+                    id: 'club-service-3d-container',
+                    data: [
+                        { name: "Meetings", value: 30, color: 0x006d77 },
+                        { name: "Team Building", value: 25, color: 0x83c5be },
+                        { name: "Training", value: 20, color: 0x4a5568 },
+                        { name: "Social Events", value: 25, color: 0xff6f61 }
+                    ],
+                    type: 'pie'
+                },
+                {
+                    id: 'community-service-3d-container',
+                    data: [
+                        { name: "Health Camps", value: 35, color: 0x48bb78 },
+                        { name: "Education", value: 30, color: 0x68d391 },
+                        { name: "Environment", value: 20, color: 0xa0aec0 },
+                        { name: "Relief Efforts", value: 15, color: 0xed8936 }
+                    ],
+                    type: 'pie'
+                },
+                {
+                    id: 'professional-dev-3d-container',
+                    data: [
+                        { name: "Workshops", value: 40, color: 0x4299e1 },
+                        { name: "Mentorship", value: 25, color: 0x63b3ed },
+                        { name: "Networking", value: 20, color: 0x90cdf4 },
+                        { name: "Certifications", value: 15, color: 0x3182ce }
+                    ],
+                    type: 'pie'
+                },
+                {
+                    id: 'international-service-3d-container',
+                    data: [
+                        { name: "Global Projects", value: 35, color: 0xff6f61 },
+                        { name: "Partnerships", value: 30, color: 0x006d77 },
+                        { name: "Cultural Exchange", value: 20, color: 0x83c5be },
+                        { name: "Aid Programs", value: 15, color: 0x4a5568 }
+                    ],
+                    type: 'pie'
                 }
-                previousMousePosition = { x: e.offsetX, y: e.offsetY };
+                
+            ];
+
+            // Initialize all charts
+            charts.forEach(chart => {
+                create3DScene(chart.id, chart.data, chart.type);
             });
-            container.addEventListener('mouseup', () => { isDragging = false; });
-            container.addEventListener('mouseleave', () => { isDragging = false; });
-        }
-
-        // Budget Breakdown 3D Visualization (Original Pie Chart)
-        (function() {
-            const budgetData = [
-                { name: "Projects", value: 40, color: 0x006d77 }, // Teal
-                { name: "Events", value: 30, color: 0xff6f61 },  // Coral
-                { name: "Operations", value: 20, color: 0x83c5be }, // Light teal
-                { name: "Reserves", value: 10, color: 0x4a5568 }  // Slate
-            ];
-            create3DScene('budget-breakdown-3d-container', budgetData, 'pie');
-        })();
-
-        // Income Sources 3D Visualization (Pie Chart)
-        (function() {
-            const incomeData = [
-                { name: "Donations", value: 40, color: 0x48bb78 }, // Emerald Green
-                { name: "Fundraising", value: 35, color: 0x68d391 }, // Light Green
-                { name: "Membership Fees", value: 25, color: 0xa0aec0 } // Soft Gray
-            ];
-            create3DScene('income-3d-container', incomeData, 'pie');
-        })();
-
-        // Budget Allocation 3D Visualization (Pie Chart)
-        (function() {
-            const allocationData = [
-                { name: "Programmes", value: 50, color: 0x4299e1 }, // Sky Blue
-                { name: "Reserves", value: 20, color: 0x63b3ed }, // Light Blue
-                { name: "Contingency", value: 15, color: 0x90cdf4 }, // Pale Blue
-                { name: "Training", value: 15, color: 0x3182ce } // Deep Blue
-            ];
-            create3DScene('allocation-3d-container', allocationData, 'pie');
-        })();
-
-        // Financial Trends 3D Visualization (Bar Chart)
-        (function() {
-            const trendsData = [
-                { name: "Q1 Income", value: 60, color: 0x48bb78 }, // Emerald Green
-                { name: "Q1 Expense", value: 45, color: 0xed8936 }, // Warm Orange
-                { name: "Q2 Income", value: 70, color: 0x68d391 }, // Light Green
-                { name: "Q2 Expense", value: 50, color: 0xf6ad55 } // Light Orange
-            ];
-            create3DScene('trends-3d-container', trendsData, 'bar');
-        })();
-
-        // Project Category 3D Visualization (Unchanged)
-        (function() {
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 500, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ antialias: true });
-            const container = document.getElementById('project-3d-container');
-
-            renderer.setSize(container.clientWidth, 500);
-            container.appendChild(renderer.domElement);
-            renderer.setClearColor(0xedf6f9, 1);
-
-            const projectData = [
-                { name: "Community", value: 35, color: 0x006d77 }, // Teal
-                { name: "Professional", value: 25, color: 0xff6f61 }, // Coral
-                { name: "International", value: 20, color: 0x83c5be }, // Light teal
-                { name: "Club Service", value: 20, color: 0x4a5568 } // Slate
-            ];
-
-            const barWidth = 1.5;
-            const spacing = 2;
-            let xOffset = -(projectData.length - 1) * spacing / 2;
-
-            projectData.forEach(segment => {
-                const height = segment.value / 5;
-                const geometry = new THREE.BoxGeometry(barWidth, height, barWidth);
-                const material = new THREE.MeshPhongMaterial({ color: segment.color });
-                const bar = new THREE.Mesh(geometry, material);
-                bar.position.x = xOffset;
-                bar.position.y = height / 2;
-                scene.add(bar);
-                xOffset += spacing;
-            });
-
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-            scene.add(ambientLight);
-            const pointLight = new THREE.PointLight(0xffffff, 1);
-            pointLight.position.set(10, 10, 10);
-            scene.add(pointLight);
-
-            camera.position.z = 15;
-            camera.position.y = 10;
-            camera.lookAt(0, 0, 0);
-
-            function animate() {
-                requestAnimationFrame(animate);
-                scene.rotation.y += 0.01;
-                renderer.render(scene, camera);
-            }
-            animate();
-
-            window.addEventListener('resize', () => {
-                const width = container.clientWidth;
-                camera.aspect = width / 500;
-                camera.updateProjectionMatrix();
-                renderer.setSize(width, 500);
-            });
-
-            let isDragging = false;
-            let previousMousePosition = { x: 0, y: 0 };
-
-            container.addEventListener('mousedown', (e) => { isDragging = true; });
-            container.addEventListener('mousemove', (e) => {
-                if (isDragging) {
-                    const deltaMove = { x: e.offsetX - previousMousePosition.x, y: e.offsetY - previousMousePosition.y };
-                    scene.rotation.y += deltaMove.x * 0.005;
-                    scene.rotation.x += deltaMove.y * 0.005;
-                }
-                previousMousePosition = { x: e.offsetX, y: e.offsetY };
-            });
-            container.addEventListener('mouseup', () => { isDragging = false; });
-            container.addEventListener('mouseleave', () => { isDragging = false; });
-        })();
+        });
     </script>
 </body>
 </html>
